@@ -86,3 +86,208 @@ footer{
     padding:25px;
     color:#94a3b8;
       }
+/* ===== Animated Background ===== */
+
+body::before{
+content:"";
+position:fixed;
+top:-200px;
+left:-200px;
+width:500px;
+height:500px;
+background:#3b82f6;
+filter:blur(180px);
+opacity:.18;
+z-index:-2;
+animation:moveOne 14s infinite alternate;
+}
+
+body::after{
+content:"";
+position:fixed;
+bottom:-200px;
+right:-200px;
+width:500px;
+height:500px;
+background:#06b6d4;
+filter:blur(180px);
+opacity:.18;
+z-index:-2;
+animation:moveTwo 14s infinite alternate;
+}
+
+@keyframes moveOne{
+0%{transform:translate(0,0);}
+100%{transform:translate(120px,90px);}
+}
+
+@keyframes moveTwo{
+0%{transform:translate(0,0);}
+100%{transform:translate(-120px,-90px);}
+}
+
+/* ===== Card Glow ===== */
+
+.card{
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:-100%;
+left:-100%;
+width:250%;
+height:250%;
+background:linear-gradient(
+45deg,
+transparent,
+rgba(255,255,255,.08),
+transparent
+);
+transform:rotate(25deg);
+transition:.7s;
+}
+
+.card:hover::before{
+top:100%;
+left:100%;
+}
+
+/* ===== Input Focus ===== */
+
+input:focus,
+select:focus{
+border:2px solid #38bdf8;
+box-shadow:0 0 20px rgba(56,189,248,.35);
+}
+
+/* ===== Buttons ===== */
+
+button{
+position:relative;
+overflow:hidden;
+}
+
+button::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.15);
+transition:.4s;
+}
+
+button:hover::before{
+left:100%;
+}
+
+button:active{
+transform:scale(.98);
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#0f172a;
+}
+
+::-webkit-scrollbar-thumb{
+background:#38bdf8;
+border-radius:20px;
+}
+
+/* ===== Hero Animation ===== */
+
+.hero h1{
+animation:fadeUp .8s ease;
+}
+
+.hero p{
+animation:fadeUp 1.2s ease;
+}
+
+.btn{
+animation:fadeUp 1.6s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* ===== Feature Hover ===== */
+
+.feature:hover{
+
+background:#2563eb;
+
+transform:translateY(-8px) scale(1.03);
+
+}
+
+/* ===== Footer ===== */
+
+footer h3{
+
+color:#38bdf8;
+
+margin-bottom:10px;
+
+}
+
+footer p{
+
+margin:6px 0;
+
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:600px){
+
+.hero{
+
+padding:70px 18px;
+
+}
+
+.hero h1{
+
+font-size:30px;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+button{
+
+font-size:15px;
+
+}
+
+    }
