@@ -291,3 +291,127 @@ font-size:15px;
 }
 
     }
+/* ===========================
+   Premium CSS Part 3
+=========================== */
+
+/* Gradient Text */
+.hero h1,
+.tools h2,
+.about h2{
+    background: linear-gradient(90deg,#38bdf8,#60a5fa,#22d3ee);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Floating Animation */
+.card{
+    animation: floating 5s ease-in-out infinite;
+}
+
+.card:nth-child(2){
+    animation-delay:.3s;
+}
+
+.card:nth-child(3){
+    animation-delay:.6s;
+}
+
+@keyframes floating{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+/* Glass Navbar */
+.navbar{
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+/* Neon Border */
+.card{
+    border:1px solid rgba(56,189,248,.25);
+}
+
+.card:hover{
+    border-color:#38bdf8;
+    box-shadow:
+        0 0 15px rgba(56,189,248,.3),
+        0 0 40px rgba(56,189,248,.15);
+}
+
+/* Button Glow */
+button{
+    box-shadow:0 10px 25px rgba(59,130,246,.25);
+}
+
+button:hover{
+    box-shadow:
+        0 0 15px rgba(56,189,248,.5),
+        0 0 30px rgba(37,99,235,.4);
+}
+
+/* Inputs */
+input,
+select{
+    background:#fff;
+    transition:.3s;
+}
+
+input:hover,
+select:hover{
+    transform:translateY(-2px);
+}
+
+/* Feature Cards */
+.feature{
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+}
+
+.feature:hover{
+    border-color:#38bdf8;
+}
+
+/* Footer */
+footer{
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(10px);
+}
+
+/* Selection Color */
+::selection{
+    background:#38bdf8;
+    color:#fff;
+}
+
+/* Smooth Transition */
+*{
+    transition:
+        background .3s,
+        color .3s,
+        transform .3s,
+        box-shadow .3s;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .tools{
+        width:94%;
+    }
+
+    .feature{
+        font-size:15px;
+    }
+
+}
