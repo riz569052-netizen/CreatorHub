@@ -1,143 +1,93 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+// Elements
+const videoFile = document.getElementById("videoFile");
+const language = document.getElementById("language");
+const generateBtn = document.getElementById("generateBtn");
+const captionOutput = document.getElementById("captionOutput");
+const copyBtn = document.getElementById("copyBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+const srtBtn = document.getElementById("srtBtn");
 
-body{
-    background:#0f172a;
-    color:#fff;
-}
+// Generate Caption
+generateBtn.addEventListener("click", async () => {
 
-nav{
-    background:#111827;
-    padding:18px;
-    text-align:center;
-    font-size:28px;
-    font-weight:bold;
-    color:#38bdf8;
-    box-shadow:0 3px 10px rgba(0,0,0,.3);
-}
+    if (!videoFile.files.length) {
+        alert("Please upload a video first.");
+        return;
+    }
 
-.hero{
-    text-align:center;
-    padding:50px 20px;
-}
+    captionOutput.value = "Uploading video...\nGenerating AI captions...";
 
-.hero h1{
-    font-size:38px;
-    margin-bottom:15px;
-}
+    const formData = new FormData();
+    formData.append("video", videoFile.files[0]);
+    formData.append("language", language.value);
 
-.hero p{
-    color:#cbd5e1;
-    font-size:18px;
-}
+    try {
 
-.tools{
-    width:90%;
-    max-width:700px;
-    margin:30px auto;
-}
+        // Backend URL
+        const response = await fetch("http://localhost:3000/api/caption", {
+            method: "POST",
+            body: formData
+        });
 
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:18px;
-    margin-bottom:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-}
+        const data = await response.json();
 
-.card h2{
-    margin-bottom:15px;
-    color:#38bdf8;
-}
+        if (data.caption) {
+            captionOutput.value = data.caption;
+        } else {
+            captionOutput.value = "No caption generated.";
+        }
 
-input{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    margin-top:10px;
-    margin-bottom:15px;
-    font-size:16px;
-}
+    } catch (error) {
 
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:#0ea5e9;
-    color:#fff;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
+        captionOutput.value =
+            "Backend is not connected yet.\n\nStart the Node.js server first.";
 
-button:hover{
-    background:#0284c7;
-}
+    }
 
-footer{
-    text-align:center;
-    padding:25px;
-    color:#94a3b8;
-      }
-/* ===== Animated Background ===== */
+});
 
-body::before{
-content:"";
-position:fixed;
-top:-200px;
-left:-200px;
-width:500px;
-height:500px;
-background:#3b82f6;
-filter:blur(180px);
-opacity:.18;
-z-index:-2;
-animation:moveOne 14s infinite alternate;
-}
+// Copy
+copyBtn.addEventListener("click", () => {
 
-body::after{
-content:"";
-position:fixed;
-bottom:-200px;
-right:-200px;
-width:500px;
-height:500px;
-background:#06b6d4;
-filter:blur(180px);
-opacity:.18;
-z-index:-2;
-animation:moveTwo 14s infinite alternate;
-}
+    navigator.clipboard.writeText(captionOutput.value);
 
-@keyframes moveOne{
-0%{transform:translate(0,0);}
-100%{transform:translate(120px,90px);}
-}
+    alert("Caption copied!");
 
-@keyframes moveTwo{
-0%{transform:translate(0,0);}
-100%{transform:translate(-120px,-90px);}
-}
+});
 
-/* ===== Card Glow ===== */
+// Download TXT
+downloadBtn.addEventListener("click", () => {
 
-.card{
-position:relative;
-overflow:hidden;
-}
+    const blob = new Blob([captionOutput.value], {
+        type: "text/plain"
+    });
 
-.card::before{
-content:"";
-position:absolute;
-top:-100%;
-left:-100%;
+    const a = document.createElement("a");
+
+    a.href = URL.createObjectURL(blob);
+
+    a.download = "captions.txt";
+
+    a.click();
+
+});
+
+// Download SRT
+srtBtn.addEventListener("click", () => {
+
+    const blob = new Blob([captionOutput.value], {
+        type: "text/plain"
+    });
+
+    const a = document.createElement("a");
+
+    a.href = URL.createObjectURL(blob);
+
+    a.download = "captions.srt";
+
+    a.click();
+
+});left:-100%;
 width:250%;
 height:250%;
 background:linear-gradient(
