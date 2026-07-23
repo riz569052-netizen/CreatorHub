@@ -1,128 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CreatorHub AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>CreatorHub AI</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-  <script src="https://kit.fontawesome.com/6f4b3d1234.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
 <header>
-    <nav class="navbar">
-        <div class="logo">🚀 CreatorHub AI</div>
 
-        <ul class="menu">
-            <li><a href="#tools">Tools</a></li>
-            <li><a href="#caption">Caption AI</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+
+<div class="logo">
+🚀 CreatorHub AI
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#tools">Tools</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
 </header>
 
 <section class="hero">
 
-<h1>Create Faster With AI</h1>
+<h1>Create AI Captions in Seconds</h1>
 
 <p>
-Download Instagram Reels, YouTube Shorts and Generate AI Captions in Multiple Languages.
+Upload your video and generate captions in Hindi, English, Hinglish and many more languages.
 </p>
 
-<a href="#tools" class="btn">Get Started</a>
+<a href="#tools" class="btn">
+Start Free
+</a>
 
 </section>
 
-<section class="tools" id="tools">
+<section class="stats">
+
+<div class="box">
+<h2>50+</h2>
+<p>Languages</p>
+</div>
+
+<div class="box">
+<h2>AI</h2>
+<p>Powered</p>
+</div>
+
+<div class="box">
+<h2>Fast</h2>
+<p>Processing</p>
+</div>
+
+</section>
+
+<section id="tools">
 
 <h2>Creator Tools</h2>
 
 <div class="card">
 
-<h3>📥 Instagram Reels Downloader</h3>
+<h3>🎥 Upload Video</h3>
 
 <input
-type="text"
-placeholder="Paste Instagram Reel Link">
+type="file"
+id="videoFile"
+accept="video/*">
 
-<button>
-Download Reel
+</div>
+
+<div class="card">
+
+<h3>🌍 Caption Language</h3>
+
+<select id="language">
+
+<option value="hi">Hindi</option>
+
+<option value="en">English</option>
+
+<option value="hinglish">Hinglish</option>
+
+<option value="es">Spanish</option>
+
+<option value="fr">French</option>
+
+<option value="de">German</option>
+
+<option value="ja">Japanese</option>
+
+<option value="ko">Korean</option>
+
+</select>
+
+</div>
+
+<div class="card">
+
+<h3>🤖 Generate AI Caption</h3>
+
+<button id="generateBtn">
+Generate Caption
 </button>
 
 </div>
 
 <div class="card">
 
-<h3>▶️ YouTube Shorts Downloader</h3>
+<h3>📝 Caption Result</h3>
 
-<input
-type="text"
-placeholder="Paste YouTube Shorts Link">
+<textarea
+id="captionOutput"
+placeholder="Generated captions will appear here..."
+rows="12"></textarea>
 
-<button>
-Download Shorts
+<div class="buttons">
+
+<button id="copyBtn">
+Copy
+</button>
+
+<button id="downloadBtn">
+Download TXT
+</button>
+
+<button id="srtBtn">
+Download SRT
 </button>
 
 </div>
-
-<div class="card" id="caption">
-
-<h3>🎬 AI Caption Generator</h3>
-
-<input
-type="file"
-accept="video/*">
-
-<select>
-
-<option>Hindi</option>
-
-<option>English</option>
-
-<option>Hinglish</option>
-
-<option>Spanish</option>
-
-<option>French</option>
-
-<option>German</option>
-
-<option>Japanese</option>
-
-</select>
-
-<button>
-
-Generate Caption
-
-</button>
 
 </div>
 
 </section>
 
-<section id="about" class="about">
+<section id="features">
 
-<h2>Why CreatorHub AI?</h2>
+<h2>Features</h2>
 
-<div class="features">
+<div class="grid">
 
 <div class="feature">
-⚡ Fast Processing
+⚡ Fast AI Processing
 </div>
 
 <div class="feature">
-🌍 Multi Language Support
-</div>
-
-<div class="feature">
-🤖 AI Powered
+🌎 Multi Language
 </div>
 
 <div class="feature">
@@ -130,16 +172,344 @@ Generate Caption
 </div>
 
 <div class="feature">
-🔒 Secure Upload
+☁ Cloud Upload
 </div>
 
 <div class="feature">
-☁ Cloud Based
+🔒 Secure
+</div>
+
+<div class="feature">
+📄 SRT Export
 </div>
 
 </div>
 
 </section>
+
+<footer id="contact">
+
+<h2>CreatorHub AI</h2>
+
+<p>
+Built for Content Creators ❤️
+</p>
+
+<p>
+© 2026 CreatorHub AI
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html><option value="ko">Korean</option>
+
+</select>
+
+</div>
+
+<div class="card">
+
+<h3>🤖 Generate AI Caption</h3>
+
+<button id="generateBtn">
+Generate Caption
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Caption Result</h3>
+
+<textarea
+id="captionOutput"
+placeholder="Generated captions will appear here..."
+rows="12"></textarea>
+
+<div class="buttons">
+
+<button id="copyBtn">
+Copy
+</button>
+
+<button id="downloadBtn">
+Download TXT
+</button>
+
+<button id="srtBtn">
+Download SRT
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="features">
+
+<h2>Features</h2>
+
+<div class="grid">
+
+<div class="feature">
+⚡ Fast AI Processing
+</div>
+
+<div class="feature">
+🌎 Multi Language
+</div>
+
+<div class="feature">
+📱 Mobile Friendly
+</div>
+
+<div class="feature">
+☁ Cloud Upload
+</div>
+
+<div class="feature">
+🔒 Secure
+</div>
+
+<div class="feature">
+📄 SRT Export
+</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h2>CreatorHub AI</h2>
+
+<p>
+Built for Content Creators ❤️
+</p>
+
+<p>
+© 2026 CreatorHub AI
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CreatorHub AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+🚀 CreatorHub AI
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#tools">Tools</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Create AI Captions in Seconds</h1>
+
+<p>
+Upload your video and generate captions in Hindi, English, Hinglish and many more languages.
+</p>
+
+<a href="#tools" class="btn">
+Start Free
+</a>
+
+</section>
+
+<section class="stats">
+
+<div class="box">
+<h2>50+</h2>
+<p>Languages</p>
+</div>
+
+<div class="box">
+<h2>AI</h2>
+<p>Powered</p>
+</div>
+
+<div class="box">
+<h2>Fast</h2>
+<p>Processing</p>
+</div>
+
+</section>
+
+<section id="tools">
+
+<h2>Creator Tools</h2>
+
+<div class="card">
+
+<h3>🎥 Upload Video</h3>
+
+<input
+type="file"
+id="videoFile"
+accept="video/*">
+
+</div>
+
+<div class="card">
+
+<h3>🌍 Caption Language</h3>
+
+<select id="language">
+
+<option value="hi">Hindi</option>
+
+<option value="en">English</option>
+
+<option value="hinglish">Hinglish</option>
+
+<option value="es">Spanish</option>
+
+<option value="fr">French</option>
+
+<option value="de">German</option>
+
+<option value="ja">Japanese</option>
+
+<option value="ko">Korean</option>
+
+</select>
+
+</div>
+
+<div class="card">
+
+<h3>🤖 Generate AI Caption</h3>
+
+<button id="generateBtn">
+Generate Caption
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Caption Result</h3>
+
+<textarea
+id="captionOutput"
+placeholder="Generated captions will appear here..."
+rows="12"></textarea>
+
+<div class="buttons">
+
+<button id="copyBtn">
+Copy
+</button>
+
+<button id="downloadBtn">
+Download TXT
+</button>
+
+<button id="srtBtn">
+Download SRT
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="features">
+
+<h2>Features</h2>
+
+<div class="grid">
+
+<div class="feature">
+⚡ Fast AI Processing
+</div>
+
+<div class="feature">
+🌎 Multi Language
+</div>
+
+<div class="feature">
+📱 Mobile Friendly
+</div>
+
+<div class="feature">
+☁ Cloud Upload
+</div>
+
+<div class="feature">
+🔒 Secure
+</div>
+
+<div class="feature">
+📄 SRT Export
+</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h2>CreatorHub AI</h2>
+
+<p>
+Built for Content Creators ❤️
+</p>
+
+<p>
+© 2026 CreatorHub AI
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html></section>
 
 <footer>
 
